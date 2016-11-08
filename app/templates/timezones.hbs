@@ -1,0 +1,27 @@
+<h2>Add Timezone</h2>
+
+<div>
+
+   	{{#power-select 
+   		options=timezones 
+   		selected=selectedTimezone
+   		onchange=(action "chooseTimezone")
+   		as |content|
+
+   	}}
+  		{{content.name}}
+	{{/power-select}}
+
+</div>
+
+<button {{action 'add'}}>Add Timezone</button>
+
+<h2>My Timezones</h2>
+
+<ul>
+
+{{#each model as |m|}}
+	<li>{{m.name}} <button {{action 'remove' this}}>Delete</button></li>
+	
+{{/each}}
+</ul>
